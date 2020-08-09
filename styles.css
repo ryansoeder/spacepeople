@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "cubano";
+    src: url("Cubano-Regular.otf");
+  }  
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#content {
+    padding: 2rem;
+    width: auto;
+    height: auto;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: "cubano";
+    font-size: 3rem;
+    color: tomato;
+    text-shadow: 5px 5px 0 black;
+}
+
+p {
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+
+ul {
+    font-family: monospace;
+    font-size: 1.3rem; 
+    list-style: none;
+}
+
+form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 0;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    font-family: monospace;
+    font-size: 1rem;
+}
