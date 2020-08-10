@@ -6,6 +6,7 @@ const spacePeopleUrl = "http://api.open-notify.org/astros.json";
 const mapQuestUrl = "http://open.mapquestapi.com/geocoding/v1/address?key=PQxsFLRrnOeYjpsUPqnkYBqjA7uGGteU&location=";
 
 function peopleHTML (json) {
+    console.log(json);
     let heading = `<h1>There are ${json.number} people in SPACE</h1>
                 <p>They are:</p>`;
     let list = "";
