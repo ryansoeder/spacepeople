@@ -33,6 +33,9 @@ function getMap() {
         json.iss_position.longitude +
         "&size=500,400&zoom=4&banner=location+of+our+heros";
       mapDiv.innerHTML = `<img src=${map}>`;
+    }).catch(err => {
+      mapDiv.innerHTML = `<h1>Sorry, thre was an error fetching this information.</h1>`;
+      console.log(Error(err));
     });
   setTimeout(getMap, 10000);
 }
