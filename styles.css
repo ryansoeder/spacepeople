@@ -1,53 +1,65 @@
 @font-face {
-    font-family: "cubano";
-    src: url("Cubano-Regular.otf");
-  }  
+  font-family: "cubano";
+  src: url("Cubano-Regular.otf");
+}
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  background-image: url("space.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #content {
-    padding: 2rem;
-    width: auto;
-    height: auto;
-    background-color: cornflowerblue;
-    border-radius: 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+#people {
+  margin: 0.5rem;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  padding: 2rem;
+  width: auto;
+  flex: 0 0 500px;
 }
 
 h1 {
-    font-family: "cubano";
-    font-size: 3rem;
-    color: tomato;
-    text-shadow: 5px 5px 0 black;
+  font-family: "cubano";
+  font-size: 3rem;
+  color: tomato;
+  text-shadow: 5px 5px 0 black;
 }
 
 p {
-    font-family: monospace;
-    font-size: 1.5rem;
+  font-family: monospace;
+  font-size: 1.5rem;
 }
 
 ul {
-    font-family: monospace;
-    font-size: 1.3rem; 
-    list-style: none;
+  font-family: monospace;
+  font-size: 1.3rem;
+  list-style: none;
 }
 
-form {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    margin: 2rem auto 0;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    font-family: monospace;
-    font-size: 1rem;
+#map {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 500px;
+}
+
+#map img {
+  border-radius: 10px;
 }
