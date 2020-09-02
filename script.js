@@ -12,26 +12,36 @@ const mapQuestUrl =
 //  FETCH FUNCTIONS
 // ------------------------------------------
 
-fetch(spacePeopleUrl)
-	.then((response) => response.json())
-	.then(peopleHTML)
-	.catch((err) => console.log(err));
+fetchData(spacePeopleUrl)
+	.then(peopleHTML);
 
 function displayMap() {
-	fetch(issUrl)
-		.then((response) => response.json())
-		.then((data) => getMap(data.iss_position))
-		.catch((err) => {
-			mapDiv.innerHTML = `<h1>Sorry, there was an error fetching this information.</h1>`;
-			console.log(Error(err));
-		});
-	setTimeout(displayMap, 10000); // fetch function wrapped in displayMap() to call every 10 seconds
+	fetchData(issUrl)
+		.then((data) => getMap(data.iss_position));
+
+	setTimeout(displayMap, 10000); // fetchData() wrapped in displayMap() to call every 10 seconds
 }
+
 displayMap(); // called immediately
 
 // ------------------------------------------
 //  HELPER FUNCTIONS
 // ------------------------------------------
+
+function checkStatus(response) {
+	if (response.ok) {
+		return Promise.resolve(response);
+	} else {
+		return Promise.reject(new Error(response.statusText));
+	}
+}
+
+function fetchData(url) {
+	return fetch(url)
+		.then(checkStatus)
+		.then((response) => response.json())
+		.catch((error) => console.log('Fetch error: ', error));
+}
 
 function peopleHTML(json) {
 	let heading = `<h1>There are ${json.number} people in SPACE</h1>
