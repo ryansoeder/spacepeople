@@ -43,11 +43,11 @@ function fetchData(url) {
 		.catch((error) => console.log('Fetch error: ', error));
 }
 
-function peopleHTML(json) {
-	let heading = `<h1>There are ${json.number} people in SPACE</h1>
+function peopleHTML(data) {
+	let heading = `<h1>There are ${data.number} people in SPACE</h1>
                  <p>They are:</p>`;
 	let list = '';
-	json.people.map((person) => {
+	data.people.map((person) => {
 		list += `<ul>
                 <li>Name: ${person.name}</li>
                 <li>Aboard: ${person.craft}</li>
