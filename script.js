@@ -8,7 +8,6 @@ const issUrl = 'http://api.open-notify.org/iss-now.json';
 const mapQuestUrl =
 	'https://open.mapquestapi.com/staticmap/v5/map?key=PQxsFLRrnOeYjpsUPqnkYBqjA7uGGteU&center=';
 
-
 // ------------------------------------------
 //  FETCH FUNCTIONS
 // ------------------------------------------
@@ -18,13 +17,17 @@ fetch(spacePeopleUrl)
 	.then(peopleHTML)
 	.catch((err) => console.log(err));
 
-fetch(issUrl)
-	.then((response) => response.json())
-	.then((data) => getMap(data.iss_position))
-	.catch((err) => {
-		mapDiv.innerHTML = `<h1>Sorry, there was an error fetching this information.</h1>`;
-		console.log(Error(err));
-	});
+function displayMap() {
+	fetch(issUrl)
+		.then((response) => response.json())
+		.then((data) => getMap(data.iss_position))
+		.catch((err) => {
+			mapDiv.innerHTML = `<h1>Sorry, there was an error fetching this information.</h1>`;
+			console.log(Error(err));
+		});
+	setTimeout(displayMap, 10000); // fetch function wrapped in displayMap() to call every 10 seconds
+}
+displayMap(); // called immediately
 
 // ------------------------------------------
 //  HELPER FUNCTIONS
