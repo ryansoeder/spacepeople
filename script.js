@@ -28,19 +28,19 @@ displayMap(); // called immediately
 //  HELPER FUNCTIONS
 // ------------------------------------------
 
+function fetchData(url) {
+	return fetch(url)
+		.then(checkStatus)
+		.then((response) => response.json())
+		.catch((error) => console.log('Fetch error: ', error));
+}
+
 function checkStatus(response) {
 	if (response.ok) {
 		return Promise.resolve(response);
 	} else {
 		return Promise.reject(new Error(response.statusText));
 	}
-}
-
-function fetchData(url) {
-	return fetch(url)
-		.then(checkStatus)
-		.then((response) => response.json())
-		.catch((error) => console.log('Fetch error: ', error));
 }
 
 function peopleHTML(data) {
